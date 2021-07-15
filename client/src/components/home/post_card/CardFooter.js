@@ -10,6 +10,7 @@ import {
 } from "../../../redux/actions/postAction";
 import ShareModal from "../../ShareModal";
 import { BASE_URL } from "../../../utils/config";
+import { BiConversation, BiShareAlt, BiAnchor } from "react-icons/bi";
 
 const CardFooter = ({ post }) => {
   const [isLike, setIsLike] = useState(false);
@@ -65,7 +66,7 @@ const CardFooter = ({ post }) => {
   }, [post._id, auth.user.saved]);
 
   return (
-    <div className="card_footer">
+    <div className="card_footer" style={{ padding: "0 25px" }}>
       <div className="card_icon_menu">
         <div className="d-flex">
           <LikeButton
@@ -73,28 +74,27 @@ const CardFooter = ({ post }) => {
             handleLike={handleLike}
             handleUnLike={handleUnLike}
           />
+          &ensp;
           <Link to={`/post/${post._id}`} className="text-dark">
-            <i className="far fa-comments" />
+            <BiConversation className="icony" />
           </Link>
-          <i
-            className="fa fa-share"
+          &ensp;
+          <BiShareAlt
+            className="icony"
             alt="Send"
             onClick={() => setIsShare(!isShare)}
           />
         </div>
         {saved ? (
-          <i className="fas text-info fa-bookmark" onClick={handleUnSavePost} />
+          <BiAnchor className="icony text-savy " onClick={handleUnSavePost} />
         ) : (
-          <i className="far fa-bookmark" onClick={handleSavePost} />
+          <BiAnchor className="icony" onClick={handleSavePost} />
         )}
       </div>
       <div className="d-flex justify-content-start">
-        <h6 style={{ padding: "0 25px", cursor: "pointer" }}>
-          {post.likes.length} likes
-        </h6>
-        <h6 style={{ padding: "0 25px", cursor: "pointer" }}>
-          {post.comments.length} comments
-        </h6>
+        <a>{post.likes.length} likes</a>
+        &ensp;
+        <a>{post.comments.length} comments</a>
       </div>
 
       {isShare && (

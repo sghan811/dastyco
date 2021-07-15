@@ -127,7 +127,15 @@ code {
 img {
   object-fit: cover;
 }
-
+svg.icony {
+  font-size: 1.5rem;
+}
+.comments {
+  padding: 0px 25px 10px 25px;
+}
+.card_body {
+  padding: 0px 25px 10px 25px;
+}
 /* ! AUTH */
 @import url("./auth.css");
 
@@ -175,6 +183,12 @@ img {
   height: 100vh;
   overflow: hidden;
 }
+.text-liky {
+  color: pink;
+}
+.text-savy {
+  color: lightpink;
+}
 
 /* !responsive design */
 @media (max-width: 768px) {
@@ -187,6 +201,7 @@ img {
     width: 100%;
   }
   .file_imgs img {
+    border-radius: 0.5rem;
     max-width: 10rem;
     max-height: 10rem;
   }
@@ -204,6 +219,7 @@ img {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    width: 100%;
   }
 
   .header .menus .dropdown-menu {
@@ -228,5 +244,14 @@ img {
   }
   .message {
     height: calc(100vh - 150px);
+  }
+  .comments {
+    padding: 10px;
+  }
+  .card_body {
+    padding: 10px;
+  }
+  .posts .card_header {
+    padding: 10px 10px;
   }
 }

@@ -89,17 +89,12 @@ const Menu = () => {
           </span>
           <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-              <Link
-                style={{ color: "white" }}
-                className="dropdown-item"
-                to={`/profile/${auth.user._id}`}
-              >
+              <Link className="dropdown-item" to={`/profile/${auth.user._id}`}>
                 Profile
               </Link>
             </li>
             <li>
               <label
-                style={{ color: "white" }}
                 htmlFor="theme"
                 className="dropdown-item"
                 onClick={() =>
@@ -115,7 +110,6 @@ const Menu = () => {
 
             <li>
               <Link
-                style={{ color: "white" }}
                 className="dropdown-item"
                 to="/"
                 onClick={() => dispatch(logout())}

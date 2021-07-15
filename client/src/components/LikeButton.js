@@ -1,21 +1,22 @@
-import React from 'react'
+import React from "react";
+import { BiLike } from "react-icons/bi";
 import { useSelector } from "react-redux";
 
 const LikeButton = ({ isLike, handleLike, handleUnLike }) => {
-    const { theme } = useSelector(state => state);
+  const { theme } = useSelector((state) => state);
   return (
     <div>
       {isLike ? (
-        <i
-          className="fas fa-thumbs-up text-info"
-          style={{ filter: theme ? "invert(1)" : "invert(0)" }}
+        <BiLike
+          // style={{ filter: theme ? "invert(1)" : "invert(0)" }}
+          className="icony text-liky "
           onClick={handleUnLike}
         />
       ) : (
-        <i className="far fa-thumbs-up" onClick={handleLike} />
+        <BiLike className="icony" onClick={handleLike} />
       )}
     </div>
   );
 };
 
-export default LikeButton
+export default LikeButton;

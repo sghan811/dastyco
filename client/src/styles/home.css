@@ -88,15 +88,18 @@
   padding: 0 25px;
   margin-top: -10px;
   margin-bottom: 10px;
+  align-items: center;
 }
 
 .posts .buttons-box {
   text-align: center;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: center;
 }
 
 .file_imgs {
+  align-items: center;
 }
 .file_imgs img {
   max-width: 20rem;
@@ -113,7 +116,6 @@
 .posts .card_icon_menu {
   display: flex;
   justify-content: space-between;
-  padding: 0 15px;
   cursor: pointer;
 }
 
