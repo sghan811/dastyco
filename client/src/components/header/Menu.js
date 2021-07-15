@@ -6,6 +6,8 @@ import { GLOBALTYPES } from "../../redux/actions/globalTypes";
 import Avatar from "../Avatar";
 import NotifyModal from "../NotifyModal";
 import useDocumentScrollThrottled from "./useDocumentScrollThrottled";
+import "./globaly.scss";
+import "./mobile-navy.scss";
 
 const Menu = () => {
   const navLinks = [
@@ -43,7 +45,7 @@ const Menu = () => {
   const shadowStyle = shouldShowShadow ? "shadow" : "";
   const hiddenStyle = shouldHideHeader ? "hidden" : "";
   return (
-    <div className={`menu ${shadowStyle} ${hiddenStyle}`}>
+    <div className="menus">
       <ul className="navbar-nav flex-row mb-2 mb-lg-0">
         {navLinks.map((link, index) => (
           <li className={`nav-item px-2 ${isActive(link.path)}`} key={index}>

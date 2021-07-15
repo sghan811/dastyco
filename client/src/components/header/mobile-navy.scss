@@ -37,20 +37,20 @@
 
 // MEDIA QUERY MANAGER
 /*
-0 - 600px Phone
-600 - 900px Tablet portrait
-900 - 1200 Tablet landscape
-[1200 - 1800] normal styles apply
-1800px + Big desktop
-
-ORDER: Base + typography > general layout + grid > page layout > components
-
-$breakpoint arguments:
-- phone
-- tab-port
-- tab-land
-- big-desktop
-*/
+  0 - 600px Phone
+  600 - 900px Tablet portrait
+  900 - 1200 Tablet landscape
+  [1200 - 1800] normal styles apply
+  1800px + Big desktop
+  
+  ORDER: Base + typography > general layout + grid > page layout > components
+  
+  $breakpoint arguments:
+  - phone
+  - tab-port
+  - tab-land
+  - big-desktop
+  */
 @mixin respond($breakpoint) {
   @if $breakpoint == phone {
     @media only screen and (max-width: 37.5em) {
@@ -78,20 +78,21 @@ $breakpoint arguments:
   }
 }
 
-$mobile-header-height: 5rem;
+$mobile-header-height: 3rem;
 
-.mobile-nav {
-  height: $mobile-header-height;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: none;
-  bottom: 1rem;
-  display: block;
-  z-index: 10000;
-  padding: 3rem 0rem;
+@media (max-width: 768px) {
+  .menus {
+    align-items: center;
+    height: $mobile-header-height;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: none;
+    z-index: 10000;
+    background-color: white;
 
-  @include respond(phone) {
-    display: block;
+    @include respond(phone) {
+      display: block;
+    }
   }
 }
