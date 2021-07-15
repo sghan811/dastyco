@@ -34,3 +34,28 @@ function Test() {
 }
 
 export default Test;
+
+// import { IconName } from "react-icons/bi";
+
+// <BiTrashAlt/>
+// <BiTrash/>
+// <BiCopy/>
+// <BiCopyAlt/>
+
+// <BiLike/>
+// <BiConversation/>
+// <BiShareAlt/>
+// <BiAnchor/>
+// <BiAngry/>
+// <BiPencil/>
+
+// <BiHomeAlt/>
+// <BiRocket/>
+// <BiPlanet/>
+// <BiBell/>
+// <BiUserCircle/>
+
+// <BiPlus/>
+// <BiPlusCircle/>
+
+// <BiSearchAlt/>
