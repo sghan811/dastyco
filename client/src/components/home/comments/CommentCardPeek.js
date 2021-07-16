@@ -73,44 +73,40 @@ const CommentCard = ({ children, comment, post, commentId }) => {
   };
 
   return (
-    <div className="comment_card mt-2" style={styleCard}>
-      <Link to={`/profile/${comment.user._id}`} className="d-flex text-dark">
-        <Avatar src={comment.user.avatar} size="small-avatar" />
-        <h6 className="mx-1">{comment.user.username}</h6>
-      </Link>
-
-      <div className="comment_content">
+    <div className="comment_card " style={styleCard}>
+      <div className="comment_content_peek">
+        <Link to={`/profile/${comment.user._id}`} className="d-flex">
+          <Avatar src={comment.user.avatar} size="small-avatar" />
+          &nbsp;
+          <a className="default font-bold">{comment.user.username}</a>
+        </Link>
+        &nbsp;
         <div
           className="flex-fill"
           style={{
             filter: theme ? "invert(1)" : "invert(0)",
-            color: theme ? "white" : "#111",
           }}
         >
           {onEdit ? (
             <textarea
-              rows="5"
+              rows="1"
               value={content}
               onChange={(e) => setContent(e.target.value)}
             />
           ) : (
             <div>
               {comment.tag && comment.tag._id !== comment.user._id && (
-                <Link
-                  to={`/profile/${comment.tag._id}`}
-                  style={{ textDecoration: "none" }}
-                  className="me-1"
-                >
+                <Link className="default" to={`/profile/${comment.tag._id}`}>
                   @{comment.tag.username}
                 </Link>
               )}
-              <span>
+              <Link className="default" to={`/post/${post._id}`}>
                 {content.length < 100
                   ? content
                   : readMore
                   ? content + " "
                   : content.slice(0, 100) + "..."}
-              </span>
+              </Link>
               {content.length > 100 && (
                 <span
                   className="readMore"
@@ -121,53 +117,11 @@ const CommentCard = ({ children, comment, post, commentId }) => {
               )}
             </div>
           )}
-
-          <div style={{ cursor: "pointer" }}>
-            <small className="text-muted" style={{ marginRight: "9px" }}>
-              {moment(comment.createdAt).fromNow()}
-            </small>
-
-            <small
-              style={{ fontWeight: "bold", marginRight: "9px" }}
-              className="mr3"
-            >
-              {comment.likes.length} likes
-            </small>
-            {onEdit ? (
-              <>
-                <small
-                  onClick={handleUpdate}
-                  style={{ fontWeight: "bold", marginRight: "9px" }}
-                  className="mr3"
-                >
-                  update
-                </small>
-                <small
-                  onClick={() => setOnEdit(false)}
-                  style={{ fontWeight: "bold", marginRight: "9px" }}
-                  className="mr3"
-                >
-                  cancel
-                </small>
-              </>
-            ) : (
-              <small
-                style={{ fontWeight: "bold", marginRight: "9px" }}
-                className="mr3"
-                onClick={handleReply}
-              >
-                {onReply ? "cancel" : "reply"}
-              </small>
-            )}
-          </div>
         </div>
-
         <div
           className="d-flex align-items-center "
           style={{ cursor: "pointer" }}
         >
-          <CommentMenu post={post} comment={comment} setOnEdit={setOnEdit} />
-
           <LikeButton
             isLike={isLike}
             handleLike={handleLike}

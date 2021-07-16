@@ -35,18 +35,17 @@ const CardHeader = ({ post }) => {
   return (
     <div className="card_header">
       <div className="d-flex">
-        <div className="outer-shadow big-avatar-cover me-2">
-          <Avatar src={post.user.avatar} size="big-avatar" />
+        <div className="medium-avatar-cover">
+          <Avatar src={post.user.avatar} size="medium-avatar" />
         </div>
         <div className="card_name">
-          <h6 className="m-0">
-            <Link className="text-dark" to={`/profile/${post.user._id}`}>
-              {post.user.username}
-            </Link>
-          </h6>
-          <small className="text-muted">
-            {moment(post.createdAt).fromNow()}
-          </small>
+          <div>
+            <a className="author">
+              <Link className="text-dark" to={`/profile/${post.user._id}`}>
+                {post.user.username}
+              </Link>
+            </a>
+          </div>
         </div>
       </div>
 

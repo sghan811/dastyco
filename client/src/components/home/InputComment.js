@@ -35,20 +35,24 @@ const InputComment = ({ children, post, onReply, setOnReply }) => {
   };
 
   return (
-    <form className="card-footer comment_input" onSubmit={handleSubmit}>
+    <form className="comment_input" onSubmit={handleSubmit}>
       {children}
-      <input
-        type="text"
-        placeholder="Add comments..."
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
-        style={{
-          filter: theme ? "invert(1)" : "invert(0)",
-          color: theme ? "white" : "#111",
-          background: theme ? "rgb(0,0,0,0.3)" : "",
-        }}
-      />
-      <Icons setContent={setContent} content={content} theme={theme} />
+      {post.comments.length == 0 ? (
+        <input
+          type="text"
+          placeholder="Write the first comment!"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
+      ) : (
+        <input
+          type="text"
+          placeholder="Add comments"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
+      )}
+
       <button type="submit" className="postBtn">
         Post
       </button>

@@ -3,7 +3,7 @@ import Avatar from "./Avatar";
 import { Link } from "react-router-dom";
 // import { useSelector } from "react-redux";
 
-const UserCard = ({
+const UserCardSuggest = ({
   children,
   user,
   border,
@@ -21,7 +21,7 @@ const UserCard = ({
   };
   return (
     <div
-      className={`d-flex justify-content-between p-2 w-100 align-items-center ${border}`}
+      className={`d-flex justify-content-between p-2 align-items-center ${border}`}
     >
       <div>
         <Link
@@ -30,8 +30,8 @@ const UserCard = ({
           className="d-flex align-items-center"
           style={{ textDecoration: "none" }}
         >
-          <div className="big-avatar-cover ">
-            <Avatar src={user.avatar} size="big-avatar" />
+          <div className="medium-avatar-cover ">
+            <Avatar src={user.avatar} size="medium-avatar" />
           </div>
           <div className="ms-2" style={{ transform: "translateY(-2px)" }}>
             <a className="d-block default">{user.username}</a>
@@ -58,4 +58,4 @@ const UserCard = ({
   );
 };
 
-export default UserCard;
+export default UserCardSuggest;

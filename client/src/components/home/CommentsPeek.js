@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import CommentDisplay from "./comments/CommentDisplay";
+import { Link } from "react-router-dom";
+import CommentDisplayPeek from "./comments/CommentDisplayPeek";
 
-const Comments = ({ post }) => {
+const CommentsPeek = ({ post }) => {
   const [comments, setComments] = useState([]);
   const [showComments, setShowComments] = useState([]);
-  const [next, setNext] = useState(10);
+  const [next, setNext] = useState(2);
   const [replyComments, setReplyComments] = useState([]);
 
   useEffect(() => {
@@ -21,36 +22,24 @@ const Comments = ({ post }) => {
   return (
     <div className="comments">
       {showComments.map((comment, index) => (
-        <CommentDisplay
+        <CommentDisplayPeek
           key={index}
           comment={comment}
           post={post}
           replyCm={replyComments.filter((item) => item.reply === comment._id)}
         />
       ))}
-      {comments.length - next > 0 ? (
-        <div
-          onClick={() => setNext(next + 10)}
-          className="p-2 border-top"
-          style={{ cursor: "pointer" }}
-          // style={{ cursor: "pointer", color: "crimson" }}
-        >
-          Load more...
-        </div>
+      {post.comments.length == 0 ? (
+        <Link to={`/post/${post._id}`} className="comments-num default">
+          Write the first comment!
+        </Link>
       ) : (
-        comments.length > 2 && (
-          <div
-            // onClick={() => setNext(2)}
-            className="p-2 border-top"
-            style={{ cursor: "pointer" }}
-            // style={{ cursor: "pointer", color: "crimson" }}
-          >
-            {/* Hide... */}
-          </div>
-        )
+        <Link to={`/post/${post._id}`} className="comments-num default">
+          {post.comments.length} comments
+        </Link>
       )}
     </div>
   );
 };
 
-export default Comments;
+export default CommentsPeek;

@@ -71,10 +71,7 @@ const MessageBtn = ({ user }) => {
 
   return (
     <>
-      <button
-        onClick={() => handleAddUser(user)}
-        className="btn-1 hover-in-shadow outer-shadow"
-      >
+      <button onClick={() => handleAddUser(user)} className="">
         <a href={`/message/${user._id}`}>Message</a>
       </button>
     </>

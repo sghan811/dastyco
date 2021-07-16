@@ -24,20 +24,21 @@
 }
 /* #region status */
 .status {
-  background-color: transparent;
-  /* box-shadow: 0 0 5px #ddd; */
-  padding: 20px 0;
-  /* border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.125); */
+  background-color: white;
+  padding: 0.5rem 25px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  margin: 2rem 0rem 1rem 0rem;
 }
 
 .status .statusBtn {
-  border-radius: 27px;
+  color: gray;
+  background: none;
+  border: none;
   padding: 0 10px;
   text-align: left;
   margin: 0 5px;
   margin-left: 3px;
-  font-size: 1.3rem;
 }
 
 /* #endregion */
@@ -45,6 +46,7 @@
 /* #region Posts */
 .posts .card {
   /* box-shadow: 0 0 5px #ddd; */
+  margin-bottom: 0.5rem;
 }
 
 /* #endregion */
@@ -59,7 +61,8 @@
 }
 
 .posts .card_header .card_name {
-  transform: translateY(3px);
+  margin: auto 0;
+  font-size: 0.5rem;
 }
 
 .posts .card_header .dropdown-menu {
@@ -102,6 +105,7 @@
   align-items: center;
 }
 .file_imgs img {
+  border-radius: 0.5rem;
   max-width: 20rem;
   max-height: 20rem;
 }
@@ -131,3 +135,8 @@
   opacity: 0.9;
 }
 /* #endregion  */
+
+.posts .card_footer {
+  padding: 10px 25px;
+  font-size: 1rem;
+}

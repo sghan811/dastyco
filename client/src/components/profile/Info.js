@@ -38,7 +38,7 @@ const Info = ({ id, auth, profile, dispatch }) => {
       {userData.map((user) => (
         <div key={user._id} className="info_container">
           <div
-            className="outer-shadow d-flex justify-content-center align-items-center"
+            className="d-flex justify-content-center align-items-center"
             style={{ borderRadius: "50%", height: "170px", width: "170px" }}
           >
             <Avatar src={user.avatar} size="supper-avatar" />
@@ -48,20 +48,14 @@ const Info = ({ id, auth, profile, dispatch }) => {
             <div className="info_content_title">
               <h2>{user.username}</h2>
               {user._id === auth.user._id ? (
-                <button
-                  className="btn-1 outer-shadow hover-in-shadow"
-                  onClick={() => setOnEdit(true)}
-                >
+                <button className="" onClick={() => setOnEdit(true)}>
                   Edit Profile
                 </button>
               ) : (
                 <FollowBtn user={user} />
               )}
               {user._id === auth.user._id ? (
-                <button
-                  className="btn-1 outer-shadow hover-in-shadow"
-                  onClick={() => setChangePassword(true)}
-                >
+                <button className="" onClick={() => setChangePassword(true)}>
                   change password
                 </button>
               ) : (

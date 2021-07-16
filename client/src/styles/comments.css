@@ -1,12 +1,14 @@
 /* #region Comment input */
 
 .comment_input {
+  padding: 0.5rem 0;
   display: flex;
   align-items: center;
+  margin: 0 25px;
 }
 
 .comment_input input {
-  background: #f7f7f7;
+  background: none;
   border: none;
   outline: none;
   flex: 1;
@@ -16,7 +18,7 @@
 .comment_input .postBtn {
   border: none;
   outline: none;
-  background: #f7f7f7;
+  background: none;
   font-weight: 600;
   /* color: crimson; */
 }
@@ -28,7 +30,6 @@
 }
 
 .comment_card .comment_content {
-  background: #eee;
   padding: 7px;
   border-radius: 10px;
   border-top-left-radius: 0;
@@ -75,3 +76,51 @@
 }
 
 /* #endregion */
+
+/* commentcard_peek */
+
+.comment_card .comment_content_peek {
+  padding: 0.25rem;
+  border-radius: 10px;
+  /* border-top-left-radius: 0; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment_card .comment_content_peek .readMore {
+  cursor: pointer;
+  /* color: crimson; */
+}
+
+.comment_card .comment_content_peek .nav-item {
+  cursor: pointer;
+  opacity: 0;
+}
+
+.comment_card .comment_content_peek:hover .nav-item {
+  opacity: 1;
+}
+
+.comment_card .comment_content_peek .dropdown-menu {
+  position: absolute;
+  right: 0;
+  left: inherit !important;
+}
+
+.comment_card .comment_content_peek .dropdown-item {
+  display: flex;
+  margin: 10px;
+  width: inherit;
+}
+
+.comment_card .comment_content_peek .dropdown-item:hover {
+  background: var(--pink);
+}
+
+.comment_card .comment_content_peek textarea {
+  border: none;
+  outline: none;
+  width: 100%;
+  background: #eee;
+}

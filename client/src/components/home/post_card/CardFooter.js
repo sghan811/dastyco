@@ -66,7 +66,7 @@ const CardFooter = ({ post }) => {
   }, [post._id, auth.user.saved]);
 
   return (
-    <div className="card_footer" style={{ padding: "0 25px" }}>
+    <div className="card_footer">
       <div className="card_icon_menu">
         <div className="d-flex">
           <LikeButton
@@ -91,10 +91,14 @@ const CardFooter = ({ post }) => {
           <BiAnchor className="icony" onClick={handleSavePost} />
         )}
       </div>
-      <div className="d-flex justify-content-start">
-        <a>{post.likes.length} likes</a>
-        &ensp;
-        <a>{post.comments.length} comments</a>
+      <div className="d-flex justify-content-start ">
+        {post.likes.length == 0 ? (
+          <a className="comments-num default">Be the first one to like!</a>
+        ) : post.likes.length == 1 ? (
+          <a className="comments-num default">{post.likes.length} like</a>
+        ) : (
+          <a className="comments-num default">{post.likes.length} likes</a>
+        )}
       </div>
 
       {isShare && (

@@ -123,7 +123,15 @@ code {
   margin: auto;
   height: 100%;
 }
-
+a.default {
+  color: black;
+}
+a.posted-date {
+  font-size: 1rem;
+}
+a.comments-num {
+  font-size: 1rem;
+}
 img {
   object-fit: cover;
 }
@@ -135,6 +143,54 @@ svg.icony {
 }
 .card_body {
   padding: 0px 25px 10px 25px;
+}
+* a {
+  text-decoration: none;
+}
+a.author {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.more {
+  align-items: center;
+  /* background-color: blue; */
+}
+
+button.follow-button {
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+  background-color: #e5e5e5;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: auto;
+  border: none;
+  border-radius: 4px;
+}
+
+button.follow-button:hover {
+  background-color: #d0d0d0;
+}
+
+button.unfollow-button {
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+  background-color: #333333;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: auto;
+  border: none;
+  border-radius: 4px;
+}
+
+button.unfollow-button:hover {
+  background-color: #222222;
 }
 /* ! AUTH */
 @import url("./auth.css");
@@ -178,6 +234,9 @@ svg.icony {
 /* ! Test */
 @import url("./test.css");
 
+/* ! Right-side-bar */
+@import url("./rightside.css");
+
 .mode {
   width: 100%;
   height: 100vh;
@@ -201,7 +260,6 @@ svg.icony {
     width: 100%;
   }
   .file_imgs img {
-    border-radius: 0.5rem;
     max-width: 10rem;
     max-height: 10rem;
   }
@@ -246,12 +304,42 @@ svg.icony {
     height: calc(100vh - 150px);
   }
   .comments {
-    padding: 10px;
+    padding: 5px 10px;
   }
   .card_body {
     padding: 10px;
   }
   .posts .card_header {
     padding: 10px 10px;
+    font-size: 1rem;
+  }
+  .posts .card_footer {
+    padding: 0px 10px;
+    font-size: 0.75rem;
+  }
+  .card_footer-texts a {
+    font-size: 0.75rem;
+    font-weight: bold;
+  }
+  .comment_input {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+  }
+  a.posted-date {
+    font-size: 0.5rem;
+  }
+  a.comments-num {
+    font-size: 0.75rem;
+  }
+  .status {
+    background-color: white;
+    padding: 0.5rem 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    margin: 0.5rem 0rem 1rem 0rem;
+  }
+  .right-side-bar {
+    display: none;
   }
 }
