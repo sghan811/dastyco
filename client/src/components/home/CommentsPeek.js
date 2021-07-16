@@ -31,7 +31,11 @@ const CommentsPeek = ({ post }) => {
       ))}
       {post.comments.length == 0 ? (
         <Link to={`/post/${post._id}`} className="comments-num default">
-          Write the first comment!
+          {post.comments.length} comment
+        </Link>
+      ) : post.comments.length == 1 ? (
+        <Link to={`/post/${post._id}`} className="comments-num default">
+          {post.comments.length} comment
         </Link>
       ) : (
         <Link to={`/post/${post._id}`} className="comments-num default">

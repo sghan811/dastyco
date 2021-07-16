@@ -41,6 +41,9 @@ export default Test;
 // <BiTrash/>
 // <BiCopy/>
 // <BiCopyAlt/>
+{
+  /* <BiImageAdd/> */
+}
 
 // <BiLike/>
 // <BiConversation/>

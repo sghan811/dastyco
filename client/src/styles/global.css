@@ -2,9 +2,10 @@
   /* --pink: #fb839e; */
   --violet: #783f8e;
   --blue: #49275b;
-  --c1: #fd2f24;
-  --c2: #ff6f01;
-  --c3: #fed800;
+  /* --c1: #fd2f24;
+  --c2: #ff6f01; */
+  /* --c3: #fed800; */
+  --c3: #ededed;
   --background-1: linear-gradient(to right, #ffc3a0, #ffafbd);
   --background-2: linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
   --background-3: linear-gradient(to right, #fffc00, #ffffff);
