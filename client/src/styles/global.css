@@ -2,7 +2,7 @@
   /* --pink: #fb839e; */
   --violet: #783f8e;
   --blue: #49275b;
-  /* --c1: #FD2F24;  */
+  --c1: #fd2f24;
   --c2: #ff6f01;
   --c3: #fed800;
   --background-1: linear-gradient(to right, #ffc3a0, #ffafbd);
@@ -124,7 +124,7 @@ code {
   height: 100%;
 }
 a.default {
-  color: black;
+  color: #222222;
 }
 a.posted-date {
   font-size: 1rem;
@@ -188,7 +188,13 @@ button.unfollow-button {
   border: none;
   border-radius: 4px;
 }
-
+svg.menus-icon {
+  font-size: 25px;
+  color: #222222;
+}
+a.notify_length {
+  color: black;
+}
 button.unfollow-button:hover {
   background-color: #222222;
 }
@@ -248,7 +254,12 @@ button.unfollow-button:hover {
 .text-savy {
   color: lightpink;
 }
-
+.header .menus .navbar-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
 /* !responsive design */
 @media (max-width: 768px) {
   .contentsub {
@@ -327,7 +338,7 @@ button.unfollow-button:hover {
     margin: 0 10px;
   }
   a.posted-date {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
   a.comments-num {
     font-size: 0.75rem;

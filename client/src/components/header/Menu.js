@@ -8,13 +8,12 @@ import NotifyModal from "../NotifyModal";
 import useDocumentScrollThrottled from "./useDocumentScrollThrottled";
 import "./globaly.scss";
 import "./mobile-navy.scss";
+import { BiHomeAlt } from "react-icons/bi";
+import { BiPlanet } from "react-icons/bi";
+import { BiRocket } from "react-icons/bi";
 
 const Menu = () => {
-  const navLinks = [
-    { label: "Home", icon: "home", path: "/" },
-    { label: "Message", icon: "near_me", path: "/message" },
-    { label: "Discover", icon: "explore", path: "/discover" },
-  ];
+  const navLinks = [];
 
   const { auth, theme, notify } = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -47,13 +46,28 @@ const Menu = () => {
   return (
     <div className="menus">
       <ul className="navbar-nav flex-row mb-2 mb-lg-0">
-        {navLinks.map((link, index) => (
+        {/* {navLinks.map((link, index) => (
           <li className={`nav-item px-2 ${isActive(link.path)}`} key={index}>
             <Link className={`nav-link `} to={link.path}>
               <span className={`material-icons `}>{link.icon}</span>
             </Link>
           </li>
-        ))}
+        ))} */}
+        <li className="nav-item px-2">
+          <Link to="/">
+            <BiHomeAlt className="menus-icon" />
+          </Link>
+        </li>
+        <li className="nav-item px-2">
+          <Link to="/message">
+            <BiRocket className="menus-icon" />
+          </Link>
+        </li>
+        <li className="nav-item px-2">
+          <Link to="/discover">
+            <BiPlanet className="menus-icon" />
+          </Link>
+        </li>
 
         <li className="nav-item dropdown" style={{ opacity: "1" }}>
           <span
@@ -64,7 +78,9 @@ const Menu = () => {
             aria-expanded="false"
           >
             <span
-              style={{ color: notify.data.length > 0 ? "var(--c1)" : "" }}
+              style={{
+                color: notify.data.length > 0 ? "var(--c1)" : "",
+              }}
               className={`material-icons `}
             >
               notifications
