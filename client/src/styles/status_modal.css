@@ -10,7 +10,7 @@
 }
 
 .status_modal form {
-  position: relative;
+  position: absolute;
   top: 10vh;
   bottom: 10vh;
   height: 80vh;
@@ -193,15 +193,16 @@ img.img-show-modal {
     overflow: scroll;
   } */
   .status_modal form {
-    height: 100vh;
+    max-height: 500px;
     max-width: 500px;
     width: 100%;
     border-radius: 5px;
     background: white;
     padding: 20px;
-    margin: 0 auto;
+    margin-top: 10rem;
     text-align: center;
     overflow: scroll;
+    height: auto;
   }
   .status_body {
     display: block;
