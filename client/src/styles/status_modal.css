@@ -12,6 +12,8 @@
 .status_modal form {
   position: relative;
   top: 10vh;
+  bottom: 10vh;
+  height: 80vh;
   max-width: 500px;
   width: 100%;
   border-radius: 5px;
@@ -32,7 +34,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bu: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
   padding-bottom: 15px;
   transform: translateY(-15px);
 }
@@ -154,6 +156,8 @@
 }
 
 .status_footer {
+  position: relative;
+  bottom: 0vh;
   text-align: center;
 }
 button.create-button {
@@ -187,6 +191,7 @@ img.img-show-modal {
   } */
   .status_body {
     display: block;
+    height: auto;
     align-items: center;
   }
   .status_body textarea {
@@ -200,9 +205,11 @@ img.img-show-modal {
     max-width: 760px;
     position: relative;
     top: 5vh;
+    bottom: 5vh;
     left: 5%;
     right: 5%;
     width: 90%;
+    height: 90vh;
     border-radius: 5px;
     background: white;
     padding: 15px;
