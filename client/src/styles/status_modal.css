@@ -10,10 +10,6 @@
 }
 
 .status_modal form {
-  position: absolute;
-  top: 10vh;
-  bottom: 10vh;
-  height: 80vh;
   max-width: 500px;
   width: 100%;
   border-radius: 5px;
