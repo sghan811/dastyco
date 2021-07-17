@@ -32,7 +32,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ddd;
+  border-bu: 1px solid #ddd;
   padding-bottom: 15px;
   transform: translateY(-15px);
 }
@@ -154,8 +154,6 @@
 }
 
 .status_footer {
-  position: relative;
-  bottom: 0vh;
   text-align: center;
 }
 button.create-button {
