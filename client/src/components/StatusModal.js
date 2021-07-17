@@ -133,7 +133,7 @@ const StatusModal = () => {
               onChange={(e) => setContent(e.target.value)}
               value={content}
               name="content"
-              placeholder="Enter your content title"
+              placeholder="Content title"
               style={{
                 filter: theme ? "invert(1)" : "invert(0)",
                 color: theme ? "white" : "#111",
@@ -144,12 +144,16 @@ const StatusModal = () => {
               <div key={index} className="file_img">
                 {index == 0 ? (
                   <>
-                    {img.type.match(/video/i)
-                      ? videoShowModal(URL.createObjectURL(img, theme))
-                      : imageShowModal(URL.createObjectURL(img, theme))}
-                    <span onClick={() => deleteImages(0)}>
-                      <BiTrash />
-                    </span>
+                    <div>
+                      {img.type.match(/video/i)
+                        ? videoShowModal(URL.createObjectURL(img, theme))
+                        : imageShowModal(URL.createObjectURL(img, theme))}
+                    </div>
+                    <div>
+                      <span onClick={() => deleteImages(0)}>
+                        <BiTrash />
+                      </span>
+                    </div>
                   </>
                 ) : (
                   <></>
@@ -182,7 +186,7 @@ const StatusModal = () => {
               onChange={(e) => setContentsub(e.target.value)}
               value={contentsub}
               name="contentsub"
-              placeholder="Enter your content title"
+              placeholder="Content title"
               style={{
                 filter: theme ? "invert(1)" : "invert(0)",
                 color: theme ? "white" : "#111",
@@ -193,12 +197,16 @@ const StatusModal = () => {
               <div key={index} className="file_img">
                 {index == 1 ? (
                   <>
-                    {img.type.match(/video/i)
-                      ? videoShowModal(URL.createObjectURL(img, theme))
-                      : imageShowModal(URL.createObjectURL(img, theme))}
-                    <span onClick={() => deleteImages(1)}>
-                      <BiTrash />
-                    </span>
+                    <div>
+                      {img.type.match(/video/i)
+                        ? videoShowModal(URL.createObjectURL(img, theme))
+                        : imageShowModal(URL.createObjectURL(img, theme))}
+                    </div>
+                    <div>
+                      <span onClick={() => deleteImages(1)}>
+                        <BiTrash />
+                      </span>
+                    </div>
                   </>
                 ) : (
                   <></>
