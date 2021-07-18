@@ -268,6 +268,7 @@ button.unfollow-button:hover {
 .community {
   margin: 0.75rem 0rem 0.75rem 0rem;
   overflow: scroll;
+  display: flex;
 }
 .communitymenu-button {
   cursor: pointer;
@@ -290,6 +291,16 @@ button.unfollow-button:hover {
 }
 .communitymenu-button button a {
   color: black;
+}
+.content-texted {
+  padding: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  margin: 5px;
+  cursor: pointer;
+}
+.content-texted button {
+  border: none;
+  background: none;
 }
 /* !responsive design */
 @media (max-width: 768px) {
@@ -390,13 +401,13 @@ button.unfollow-button:hover {
   }
   .communitymenu-button {
     cursor: pointer;
-    margin: 5px 10px;
+    margin: 2.5px 5px;
     border-radius: 10px;
     background-color: white;
     padding: 0.25rem 0.25rem;
   }
   .communitymenu-button:hover {
-    margin: 5px 10px;
+    margin: 2.5px 5px;
     border-radius: 10px;
     background: #d0d0d0;
     padding: 0.25rem 0.25rem;

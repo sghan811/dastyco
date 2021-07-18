@@ -36,7 +36,7 @@ const HashPosts = () => {
             <PostCard key={post._id} post={post} theme={theme} />
           </>
         ) : (
-          <>There is no post in the community</>
+          <></>
         )
       )}
       {load && (

@@ -113,6 +113,7 @@ const CardBody = ({ post }) => {
   }, [post._id, auth.user.saved]);
   const [readMore, setReadMore] = useState();
   const [readMores, setReadMores] = useState();
+  console.log(post);
   return (
     <div className="card_body">
       <div
@@ -126,7 +127,15 @@ const CardBody = ({ post }) => {
         <div>
           Total votes of {post.likerights.length + post.likelefts.length}
         </div>
-        <div>Community : {post.community}</div>
+        <div>
+          <Link
+            className="default"
+            to={`/community/${post.community}`}
+            key={post.community}
+          >
+            Community : {post.community}
+          </Link>
+        </div>
       </div>
       {isLikeleft || isLikeright ? (
         <div className="buttons-box">
@@ -147,6 +156,47 @@ const CardBody = ({ post }) => {
         </div>
       ) : (
         <></>
+      )}
+      {post.images.length == 0 && (
+        <>
+          <div className="buttons-box">
+            <div>
+              {isLikeleft ? (
+                <div className="content-texted">
+                  <button onClick={handleUnLikeleft}>
+                    <a>{post.content}</a>
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <div className="content-texted">
+                    <button onClick={handleLikeleft}>
+                      <a>{post.content}</a>
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
+            <div>
+              {isLikeright ? (
+                <div className="content-texted">
+                  <button onClick={handleUnLikeright}>
+                    <a>{post.contentsub}</a>
+                  </button>
+                </div>
+              ) : (
+                <>
+                  {" "}
+                  <div className="content-texted">
+                    <button onClick={handleLikeright}>
+                      <a>{post.content}</a>
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        </>
       )}
       <div className="buttons-box">
         {post.images.map((img, index) => (
@@ -206,6 +256,7 @@ const CardBody = ({ post }) => {
                 )}
               </>
             )}
+
             {index == 1 && (
               <>
                 {isLikeright ? (

@@ -27,7 +27,7 @@ const CommunityMenu = () => {
     setLoad(false);
   };
   return (
-    <div className="community d-flex">
+    <div className="community">
       {homePosts.posts.map((post) => (
         <>
           {post.community == post.community ? <></> : <></>}
