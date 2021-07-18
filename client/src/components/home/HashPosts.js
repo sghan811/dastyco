@@ -29,6 +29,7 @@ const HashPosts = () => {
   console.log(newUR);
   return (
     <div className="posts">
+      <h3>Welcome to {newUR} community</h3>
       {homePosts.posts.map((post) =>
         post.community == newUR ? (
           <>
@@ -38,11 +39,9 @@ const HashPosts = () => {
           <>There is no post in the community</>
         )
       )}
-
       {load && (
         <img src={LoadIcon} alt="Loading..." className="d-block mx-auto" />
       )}
-
       <LoadMoreBtn
         result={homePosts.result}
         page={homePosts.page}

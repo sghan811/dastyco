@@ -379,9 +379,26 @@ button.unfollow-button:hover {
     padding: 0.5rem 10px;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.125);
-    margin: 0.5rem 0rem 1rem 0rem;
+    margin: 0.5rem 0rem 0.25rem 0rem;
   }
   .right-side-bar {
     display: none;
+  }
+  .community {
+    margin: 0rem 0rem 0.25rem 0rem;
+    overflow: scroll;
+  }
+  .communitymenu-button {
+    cursor: pointer;
+    margin: 5px 10px;
+    border-radius: 10px;
+    background-color: white;
+    padding: 0.25rem 0.25rem;
+  }
+  .communitymenu-button:hover {
+    margin: 5px 10px;
+    border-radius: 10px;
+    background: #d0d0d0;
+    padding: 0.5rem 0.5rem;
   }
 }
