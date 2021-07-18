@@ -1,14 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import Posts from "../components/home/Posts";
+import HashPosts from "../components/home/HashPosts";
 import Status from "../components/home/Status";
-import CommunityMenu from "../components/home/CommunityMenu";
 import RightSideBar from "../components/home/RightSideBar";
 
 import LoadIcon from "../images/loading.gif";
 
-const Home = () => {
+const HashHome = () => {
   const { homePosts } = useSelector((state) => state);
   return (
     <div className="home-grid">
@@ -17,16 +16,9 @@ const Home = () => {
         {homePosts.loading ? (
           <img src={LoadIcon} alt="loading" className="d-block mx-auto" />
         ) : homePosts.result === 0 ? (
-          <h2 className="text-center">No Community</h2>
-        ) : (
-          <CommunityMenu />
-        )}
-        {homePosts.loading ? (
-          <img src={LoadIcon} alt="loading" className="d-block mx-auto" />
-        ) : homePosts.result === 0 ? (
           <h2 className="text-center">No Post</h2>
         ) : (
-          <Posts />
+          <HashPosts />
         )}
       </div>
 
@@ -37,4 +29,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HashHome;

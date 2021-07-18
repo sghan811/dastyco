@@ -95,7 +95,7 @@
   /* font-family: "Barlow", sans-serif; */
   /* font-family: "Cabin", sans-serif; */
   /* font-family: "Sawarabi Gothic", sans-serif; */
-  font-family: "Khula", sans-serif;
+  /* font-family: "Khula", sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -264,6 +264,32 @@ button.unfollow-button:hover {
   justify-content: space-around;
   align-items: center;
   width: 100%;
+}
+.community {
+  margin: 0.75rem 0rem 0.75rem 0rem;
+  overflow: scroll;
+}
+.communitymenu-button {
+  cursor: pointer;
+  margin: 5px 10px;
+  border-radius: 10px;
+  background-color: white;
+  padding: 0.5rem 0.5rem;
+}
+.communitymenu-button:hover {
+  margin: 5px 10px;
+  border-radius: 10px;
+  background: #d0d0d0;
+  padding: 0.5rem 0.5rem;
+}
+.communitymenu-button button {
+  background: none;
+  border: none;
+}
+.communitymenu-button button:hover {
+}
+.communitymenu-button button a {
+  color: black;
 }
 /* !responsive design */
 @media (max-width: 768px) {

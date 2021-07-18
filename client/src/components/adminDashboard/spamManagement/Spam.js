@@ -3,6 +3,7 @@ import "./Spam.css";
 import { useDispatch, useSelector } from "react-redux";
 import ContentList from "../ContentList";
 import ContentsubList from "../ContentsubList";
+import CommunityList from "../CommunityList";
 import { getSpamPosts } from "../../../redux/actions/adminAction";
 
 const Spam = () => {
@@ -24,6 +25,7 @@ const Spam = () => {
         <div className="spam">
           <ContentList content={admin.spam_posts} />
           <ContentsubList contentsub={admin.spam_posts} />
+          <CommunityList community={admin.spam_posts} />
         </div>
       </div>
     </div>

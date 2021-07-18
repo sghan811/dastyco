@@ -22,6 +22,7 @@ export const POST_TYPES = {
 export const createPost = ({
   content,
   contentsub,
+  community,
   images,
   auth,
   socket,
@@ -37,7 +38,7 @@ export const createPost = ({
 
     const res = await postDataAPI(
       "posts",
-      { content, contentsub, images: media },
+      { content, contentsub, community, images: media },
       auth.token
     );
 
@@ -56,6 +57,7 @@ export const createPost = ({
       url: `/post/${res.data.newPost._id}`,
       content,
       contentsub,
+      community,
       image: media[0].url,
     };
 
@@ -90,6 +92,7 @@ export const getPosts = (token) => async (dispatch) => {
 export const updatePost = ({
   content,
   contentsub,
+  community,
   images,
   auth,
   status,
@@ -100,6 +103,7 @@ export const updatePost = ({
   if (
     status.content === content &&
     status.contentsub === contentsub &&
+    status.community === community &&
     imgNewUrl.length === 0 &&
     imgOldUrl.length === status.images.length
   ) {
@@ -112,7 +116,7 @@ export const updatePost = ({
     }
     const res = await patchDataAPI(
       `post/${status._id}`,
-      { content, contentsub, images: [...imgOldUrl, ...media] },
+      { content, contentsub, community, images: [...imgOldUrl, ...media] },
       auth.token
     );
 
@@ -145,6 +149,7 @@ export const likePost = ({ post, auth, socket }) => async (dispatch) => {
       url: `/post/${post._id}`,
       content: post.content,
       contentsub: post.contentsub,
+      community: post.community,
       image: post.images[0].url,
     };
 
@@ -207,6 +212,7 @@ export const likeleftPost = ({ post, auth, socket }) => async (dispatch) => {
       url: `/post/${post._id}`,
       content: post.content,
       contentsub: post.contentsub,
+      community: post.community,
       image: post.images[0].url,
     };
 
@@ -270,6 +276,7 @@ export const likerightPost = ({ post, auth, socket }) => async (dispatch) => {
       url: `/post/${post._id}`,
       content: post.content,
       contentsub: post.contentsub,
+      community: post.community,
       image: post.images[0].url,
     };
 

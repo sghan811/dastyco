@@ -5,6 +5,7 @@ const postSchema = new Schema(
   {
     content: String,
     contentsub: String,
+    community: String,
     images: {
       type: Array,
       required: false,

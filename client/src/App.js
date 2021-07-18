@@ -8,6 +8,7 @@ import PrivateRouter from "./customRouter/PrivateRouter";
 import Login from "./pages/login";
 import Register from "./pages/register";
 import Home from "./pages/home";
+import HashHome from "./pages/HashHome";
 import Alert from "./components/alert/Alert";
 import Header from "./components/header/Header";
 import StatusModal from "./components/StatusModal";
@@ -70,6 +71,19 @@ function App() {
               userType === "user"
                 ? auth.token
                   ? Home
+                  : Login
+                : auth.token
+                ? AdminDashboard
+                : Login
+            }
+          />
+          <Route
+            exact
+            path="/community/:id"
+            component={
+              userType === "user"
+                ? auth.token
+                  ? HashHome
                   : Login
                 : auth.token
                 ? AdminDashboard

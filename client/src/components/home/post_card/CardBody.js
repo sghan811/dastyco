@@ -122,7 +122,12 @@ const CardBody = ({ post }) => {
           color: theme ? "white" : "#111",
         }}
       ></div>
-      <div>Total votes of {post.likerights.length + post.likelefts.length}</div>
+      <div>
+        <div>
+          Total votes of {post.likerights.length + post.likelefts.length}
+        </div>
+        <div>Community : {post.community}</div>
+      </div>
       {isLikeleft || isLikeright ? (
         <div className="buttons-box">
           <div>

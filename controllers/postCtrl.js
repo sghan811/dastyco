@@ -20,7 +20,7 @@ class APIfeatures {
 const postCtrl = {
   createPost: async (req, res) => {
     try {
-      const { content, contentsub, images } = req.body;
+      const { content, contentsub, community, images } = req.body;
 
       // if (images.length === 0) {
       //   return res.status(400).json({ msg: "Please add photo(s)" });
@@ -29,6 +29,7 @@ const postCtrl = {
       const newPost = new Posts({
         content,
         contentsub,
+        community,
         images,
         user: req.user._id,
       });
@@ -80,13 +81,14 @@ const postCtrl = {
 
   updatePost: async (req, res) => {
     try {
-      const { content, contentsub, images } = req.body;
+      const { content, contentsub, community, images } = req.body;
 
       const post = await Posts.findOneAndUpdate(
         { _id: req.params.id },
         {
           content,
           contentsub,
+          community,
           images,
         }
       )
@@ -105,6 +107,7 @@ const postCtrl = {
           ...post._doc,
           content,
           contentsub,
+          community,
           images,
         },
       });

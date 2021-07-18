@@ -12,6 +12,7 @@ const StatusModal = () => {
 
   const [content, setContent] = useState("");
   const [contentsub, setContentsub] = useState("");
+  const [community, setCommunity] = useState("");
   const [images, setImages] = useState([]);
   const [stream, setStream] = useState(false);
   const videoRef = useRef();
@@ -88,13 +89,18 @@ const StatusModal = () => {
     // }
 
     if (status.onEdit) {
-      dispatch(updatePost({ content, contentsub, images, auth, status }));
+      dispatch(
+        updatePost({ content, contentsub, community, images, auth, status })
+      );
     } else {
-      dispatch(createPost({ content, contentsub, images, auth, socket }));
+      dispatch(
+        createPost({ content, contentsub, community, images, auth, socket })
+      );
     }
 
     setContent("");
     setContentsub("");
+    setCommunity("");
     setImages([]);
     if (tracks) {
       tracks.stop();
@@ -109,6 +115,7 @@ const StatusModal = () => {
     if (status.onEdit) {
       setContent(status.content);
       setContentsub(status.contentsub);
+      setCommunity(status.community);
       setImages(status.images);
     }
   }, [status]);
@@ -128,93 +135,107 @@ const StatusModal = () => {
           </span>
         </div>
         <div className="status_body">
-          <div className="status_body-box">
-            <textarea
-              onChange={(e) => setContent(e.target.value)}
-              value={content}
-              name="content"
-              placeholder="Content title"
-              style={{
-                filter: theme ? "invert(1)" : "invert(0)",
-                color: theme ? "white" : "#111",
-                background: theme ? "rgb(0,0,0,0.3)" : "",
-              }}
-            />
-            {images.map((img, index) => (
-              <div key={index} className="file_img">
-                {index == 0 ? (
-                  <>
-                    <div>
-                      {img.type.match(/video/i)
-                        ? videoShowModal(URL.createObjectURL(img, theme))
-                        : imageShowModal(URL.createObjectURL(img, theme))}
-                    </div>
-                    <div>
-                      <span onClick={() => deleteImages(0)}>
-                        <BiTrash />
-                      </span>
-                    </div>
-                  </>
-                ) : (
-                  <></>
-                )}
-              </div>
-            ))}
-            <div className="input_images">
-              {stream ? (
-                <i className="fas fa-camera" onClick={handleCapture} />
-              ) : (
-                <>
-                  <div className="file_upload">
-                    <BiImageAdd />
-                    <input
-                      onChange={handleChangeImages}
-                      type="file"
-                      name="file"
-                      id="file"
-                      multiple
-                      accept="image/*,video/*"
-                    />
-                    {/* {images ? <a>{images[0].name}</a> : <></>} */}
-                  </div>
-                </>
-              )}
-            </div>
-          </div>
           <div>
             <textarea
-              onChange={(e) => setContentsub(e.target.value)}
-              value={contentsub}
-              name="contentsub"
-              placeholder="Content title"
+              onChange={(e) => setCommunity(e.target.value)}
+              value={community}
+              name="community"
+              placeholder="Community"
               style={{
                 filter: theme ? "invert(1)" : "invert(0)",
                 color: theme ? "white" : "#111",
                 background: theme ? "rgb(0,0,0,0.3)" : "",
               }}
             />
-            {images.map((img, index) => (
-              <div key={index} className="file_img">
-                {index == 1 ? (
+          </div>
+          <div className="status_body-block">
+            <div className="status_body-box">
+              <textarea
+                onChange={(e) => setContent(e.target.value)}
+                value={content}
+                name="content"
+                placeholder="Content title"
+                style={{
+                  filter: theme ? "invert(1)" : "invert(0)",
+                  color: theme ? "white" : "#111",
+                  background: theme ? "rgb(0,0,0,0.3)" : "",
+                }}
+              />
+              {images.map((img, index) => (
+                <div key={index} className="file_img">
+                  {index == 0 ? (
+                    <>
+                      <div>
+                        {img.type.match(/video/i)
+                          ? videoShowModal(URL.createObjectURL(img, theme))
+                          : imageShowModal(URL.createObjectURL(img, theme))}
+                      </div>
+                      <div>
+                        <span onClick={() => deleteImages(0)}>
+                          <BiTrash />
+                        </span>
+                      </div>
+                    </>
+                  ) : (
+                    <></>
+                  )}
+                </div>
+              ))}
+              <div className="input_images">
+                {stream ? (
+                  <i className="fas fa-camera" onClick={handleCapture} />
+                ) : (
                   <>
-                    <div>
-                      {img.type.match(/video/i)
-                        ? videoShowModal(URL.createObjectURL(img, theme))
-                        : imageShowModal(URL.createObjectURL(img, theme))}
-                    </div>
-                    <div>
-                      <span onClick={() => deleteImages(1)}>
-                        <BiTrash />
-                      </span>
+                    <div className="file_upload">
+                      <BiImageAdd />
+                      <input
+                        onChange={handleChangeImages}
+                        type="file"
+                        name="file"
+                        id="file"
+                        multiple
+                        accept="image/*,video/*"
+                      />
+                      {/* {images ? <a>{images[0].name}</a> : <></>} */}
                     </div>
                   </>
-                ) : (
-                  <></>
                 )}
               </div>
-            ))}
+            </div>
+            <div className="status_body-box">
+              <textarea
+                onChange={(e) => setContentsub(e.target.value)}
+                value={contentsub}
+                name="contentsub"
+                placeholder="Content title"
+                style={{
+                  filter: theme ? "invert(1)" : "invert(0)",
+                  color: theme ? "white" : "#111",
+                  background: theme ? "rgb(0,0,0,0.3)" : "",
+                }}
+              />
+              {images.map((img, index) => (
+                <div key={index} className="file_img">
+                  {index == 1 ? (
+                    <>
+                      <div>
+                        {img.type.match(/video/i)
+                          ? videoShowModal(URL.createObjectURL(img, theme))
+                          : imageShowModal(URL.createObjectURL(img, theme))}
+                      </div>
+                      <div>
+                        <span onClick={() => deleteImages(1)}>
+                          <BiTrash />
+                        </span>
+                      </div>
+                    </>
+                  ) : (
+                    <></>
+                  )}
+                </div>
+              ))}
 
-            {/* {images.map((img, index) => (
+              {/* {images.map((img, index) => (
             <div key={index} className="file_img">
               {img.camera ? (
                 imageShowModal(img.camera, theme)
@@ -234,23 +255,23 @@ const StatusModal = () => {
               <span onClick={() => deleteImages(index)}>&times;</span>
             </div>
           ))} */}
-            <div className="input_images">
-              <div className="file_upload">
-                <BiImageAdd />
-                <input
-                  onChange={handleChangeImages}
-                  type="file"
-                  name="file"
-                  id="file"
-                  multiple
-                  accept="image/*,video/*"
-                />
-                {/* {images ? <a>{images[1].name}</a> : <></>} */}
+              <div className="input_images">
+                <div className="file_upload">
+                  <BiImageAdd />
+                  <input
+                    onChange={handleChangeImages}
+                    type="file"
+                    name="file"
+                    id="file"
+                    multiple
+                    accept="image/*,video/*"
+                  />
+                  {/* {images ? <a>{images[1].name}</a> : <></>} */}
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* <div className="show_images">
+            {/* <div className="show_images">
             {images.map((img, index) => (
               <div key={index} className="file_img">
                 {img.camera ? (
@@ -276,7 +297,7 @@ const StatusModal = () => {
               </div>
             ))}
           </div> */}
-          {/* {stream && (
+            {/* {stream && (
             <div className="stream position-relative">
               <video
                 width="100%"
@@ -291,7 +312,7 @@ const StatusModal = () => {
               <canvas style={{ display: "none" }} ref={refCanvas} />
             </div>
           )} */}
-          {/* <div className="input_images">
+            {/* <div className="input_images">
             {stream ? (
               <i className="fas fa-camera" onClick={handleCapture} />
             ) : (
@@ -311,6 +332,7 @@ const StatusModal = () => {
               </>
             )}
           </div> */}
+          </div>
         </div>
         <div className="status_footer">
           <button type="submit" className="create-button">

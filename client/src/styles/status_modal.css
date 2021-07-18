@@ -26,11 +26,13 @@
   overflow: scroll;
 }
 .status_body {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   text-align: center;
   height: 60vh;
   align-items: center;
+}
+.status_body-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 .status_header {
   display: flex;

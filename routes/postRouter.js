@@ -13,6 +13,12 @@ router
   .get(auth, postCtrl.getPost)
   .delete(auth, postCtrl.deletePost);
 
+router
+  .route("/community/:id")
+  .patch(auth, postCtrl.updatePost)
+  .get(auth, postCtrl.getPost)
+  .delete(auth, postCtrl.deletePost);
+
 router.patch("/post/:id/like", auth, postCtrl.likePost);
 router.patch("/post/:id/likeleft", auth, postCtrl.likeleftPost);
 router.patch("/post/:id/likeright", auth, postCtrl.likerightPost);
